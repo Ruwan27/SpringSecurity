@@ -27,7 +27,6 @@ public class SecurityConfiguration {
                     registry.anyRequest().authenticated();
                 })
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
-
                 .build();
     }
     @Bean
