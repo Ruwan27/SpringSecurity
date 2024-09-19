@@ -16,6 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
 
@@ -25,6 +26,7 @@ public class SecurityConfiguration {
                     registry.requestMatchers("/user/**").hasRole("USER");
                     registry.anyRequest().authenticated();
                 })
+                .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
 
                 .build();
     }
@@ -51,4 +53,4 @@ public class SecurityConfiguration {
 
 }
 
-//.formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
+
