@@ -8,7 +8,8 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-//
+import ruwan.SpringSecurity.security.AuthenticationSuccessHandler;
+
 
 @Configuration
 @EnableWebSecurity
@@ -25,7 +26,10 @@ public class SecurityConfiguration {
                     registry.anyRequest().authenticated();
                 })
                 .formLogin(httpSecurityFormLoginConfigurer -> {
-                    httpSecurityFormLoginConfigurer.loginPage("/login").permitAll();
+                    httpSecurityFormLoginConfigurer
+                            .loginPage("/login")
+                            .successHandler(new AuthenticationSuccessHandler())
+                            .permitAll();
                 })
                 .build();
     }
