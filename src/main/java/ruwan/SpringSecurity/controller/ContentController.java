@@ -23,4 +23,8 @@ public class ContentController {
     public String handleLogin() {
         return "custom_login";
     }
+    @GetMapping("/logout")
+    public String logoutPage() {
+        return "logout";  // Return view for the logout confirmation page
+    }
 }

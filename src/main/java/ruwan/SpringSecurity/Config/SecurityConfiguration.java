@@ -31,6 +31,14 @@ public class SecurityConfiguration {
                             .successHandler(new AuthenticationSuccessHandler())
                             .permitAll();
                 })
+                .logout(httpSecurityLogoutConfigurer -> {
+                    httpSecurityLogoutConfigurer
+                            .logoutUrl("/logout")  // URL to trigger logout
+                            .logoutSuccessUrl("/login?logout")  // Redirect to login page after logout
+                            .invalidateHttpSession(true)  // Invalidate the session
+                            .clearAuthentication(true)  // Clear the authentication
+                            .permitAll();  // Allow everyone to access the logout page
+                })
                 .build();
     }
     @Bean
