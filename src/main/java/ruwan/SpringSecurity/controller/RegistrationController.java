@@ -17,8 +17,9 @@ public class RegistrationController {
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/register/user")
-    public MyUser createUser(@RequestBody MyUser user) {
+    public String createUser(@RequestBody MyUser user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return myUserRepository.save(user);
+        myUserRepository.save(user);
+        return "redirect:/login";
     }
 }

@@ -21,10 +21,10 @@
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
 
     h2 {
-      text-align: center;
       color: #333;
     }
 
@@ -54,6 +54,24 @@
     button:hover {
       background-color: #45a049;
     }
+
+    .register-container {
+      margin-top: 16px;
+    }
+
+    .register-container p {
+      margin: 0;
+      color: #333;
+    }
+
+    .register-button {
+      background-color: #007bff;
+      margin-top: 10px;
+    }
+
+    .register-button:hover {
+      background-color: #0069d9;
+    }
   </style>
 </head>
 <body>
@@ -68,6 +86,14 @@
 
     <button type="submit">Login</button>
   </form>
+
+  <!-- Add register option here -->
+  <div class="register-container">
+    <p>Are you not registered?</p>
+    <form action="/register/user" method="get">
+      <button type="submit" class="register-button">Register</button>
+    </form>
+  </div>
 </div>
 </body>
 </html>

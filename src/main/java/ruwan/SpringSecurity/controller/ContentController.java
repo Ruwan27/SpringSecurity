@@ -27,4 +27,10 @@ public class ContentController {
     public String logoutPage() {
         return "logout";  // Return view for the logout confirmation page
     }
+    @GetMapping("/register/user")
+    public String showRegisterPage() {
+        //model.addAttribute("user", new MyUser());  // Send an empty MyUser object to the form
+        return "register";  // This refers to register.html in the templates folder
+    }
+
 }
